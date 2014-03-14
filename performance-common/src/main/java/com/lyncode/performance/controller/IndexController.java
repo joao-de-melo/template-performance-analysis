@@ -20,6 +20,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
+import static java.util.Arrays.asList;
+
 @Controller
 public class IndexController {
     @RequestMapping("/")
@@ -27,5 +31,30 @@ public class IndexController {
         System.out.println("Started");
         model.addAttribute("name", "Performance");
         return "index";
+    }
+
+    @RequestMapping("/complex")
+    public String complexAction (ModelMap model) {
+        System.out.println("Started 2");
+
+        List<String> list = asList(
+                "one",
+                "two",
+                "three",
+                "four",
+                "five",
+                "six",
+                "seven",
+                "eight",
+                "nine",
+                "ten"
+        );
+
+        model
+                .addAttribute("name", "Performance")
+                .addAttribute("list", list)
+        ;
+
+        return "complex";
     }
 }

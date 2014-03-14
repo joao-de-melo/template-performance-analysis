@@ -29,10 +29,10 @@ public class GetStatistics {
 //        System.out.println(new NormalDistribution(0, 1).density(0));
         List<String> result = new ArrayList<String>();
         PerformanceRequester requester = new PerformanceRequester();
-        requester.requestDurationWithoutSum("/");
+        requester.requestDurationWithoutSum("/complex");
         for (int i = 0; i < 1000; i++) {
             sleep(10);
-            requester.requestDuration("/");
+            requester.requestDuration("/complex");
         }
 
         result.add(requester.toString());

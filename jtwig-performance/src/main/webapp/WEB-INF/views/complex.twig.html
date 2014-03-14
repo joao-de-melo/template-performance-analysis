@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Performance Test</title>
+</head>
+
+<body>
+Hi {{ name }}!
+{% if (list) %}
+<ul>
+    {% for item in list %}
+    <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+</body>
+</html>
