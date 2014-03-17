@@ -7,9 +7,11 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.0.0.RC4</version>
     </parent>
+    <name>JSP Performance</name>
     <groupId>template-performance-analysis</groupId>
 	<artifactId>jsp-performance</artifactId>
     <version>1.0-SNAPSHOT</version>
+
 	<packaging>war</packaging>
 	<properties>
 		<main.basedir>${basedir}/..</main.basedir>
@@ -37,21 +39,27 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<useSystemClassLoader>false</useSystemClassLoader>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/webapp</directory>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.lyncode.performance.JtwigPerformanceApplication</mainClass>
+                    <layout>ZIP</layout>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 
     <repositories>
         <repository>
@@ -63,4 +71,13 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <url>http://repo.spring.io/libs-snapshot</url>
+            <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
 </project>

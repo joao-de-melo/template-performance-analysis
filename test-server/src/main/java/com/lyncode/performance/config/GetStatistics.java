@@ -16,28 +16,23 @@
 
 package com.lyncode.performance.config;
 
-import com.lyncode.performance.test.PerformanceRequester;
+import com.lyncode.performance.PerformanceRequester;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static java.lang.Thread.sleep;
 
 public class GetStatistics {
     public static void main(String... args) throws IOException, InterruptedException {
-//        System.out.println(new NormalDistribution(0, 1).density(0));
-        List<String> result = new ArrayList<String>();
+        String url = "";
+        if (args.length == 1)
+            url = args[0];
         PerformanceRequester requester = new PerformanceRequester();
-        requester.requestDurationWithoutSum("/complex");
+        requester.requestDurationWithoutSum("/" + url);
         for (int i = 0; i < 1000; i++) {
             sleep(10);
-            requester.requestDuration("/complex");
+            requester.requestDuration("/" + url);
         }
-
-        result.add(requester.toString());
-
-        for (String echo : result)
-            System.out.println(echo);
+        System.out.println(requester.toString());;
     }
 }

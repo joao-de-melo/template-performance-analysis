@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.lyncode.performance.test;
+package com.lyncode.performance;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -54,6 +54,7 @@ public class PerformanceRequester {
 //        System.out.println("End: "+end);
         long value = end - start;
         measurements.add(value);
+        System.err.println(value);
     }
 
     public double desvio () {
@@ -95,7 +96,6 @@ public class PerformanceRequester {
         int position = 0;
         long max = measurements.get(0);
         for (int i = 1;i<measurements.size();i++) {
-            System.out.println(measurements.get(i));
             if (max > measurements.get(i)) {
                 max = measurements.get(i);
                 position = i;
@@ -122,7 +122,7 @@ public class PerformanceRequester {
         StringBuilder result = new StringBuilder();
         result.append("Avg: ").append(toString(average())).append("\n");
         result.append("Dsv: ").append(toString((long) desvio())).append("\n");
-        result.append("Nrm: ").append(toString(normalDist())).append("\n");
+//        result.append("Nrm: ").append(toString(normalDist())).append("\n");
         result.append("Max: ").append(toString(max())).append("\n");
         result.append("Min: ").append(toString(min())).append("\n");
 

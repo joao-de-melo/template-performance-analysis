@@ -36,12 +36,24 @@
         </dependency>
     </dependencies>
 
+
     <build>
         <resources>
             <resource>
                 <directory>src/main/webapp</directory>
             </resource>
         </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.lyncode.performance.JtwigPerformanceApplication</mainClass>
+                    <layout>ZIP</layout>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 
@@ -55,4 +67,13 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <url>http://repo.spring.io/libs-snapshot</url>
+            <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
 </project>

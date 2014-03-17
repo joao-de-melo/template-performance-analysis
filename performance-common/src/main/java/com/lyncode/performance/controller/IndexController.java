@@ -28,14 +28,14 @@ import static java.util.Arrays.asList;
 public class IndexController {
     @RequestMapping("/")
     public String indexAction (ModelMap model) {
-        System.out.println("Started");
+//        System.out.println("Started");
         model.addAttribute("name", "Performance");
         return "index";
     }
 
     @RequestMapping("/complex")
     public String complexAction (ModelMap model) {
-        System.out.println("Started 2");
+//        System.out.println("Started 2");
 
         List<String> list = asList(
                 "one",
